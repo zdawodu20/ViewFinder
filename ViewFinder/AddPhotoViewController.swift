@@ -11,42 +11,51 @@ import UIKit
 
 class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var imageView: UIImageView!
-    
     var imagePicker = UIImagePickerController()
-    
-    @IBAction func Camera(_ sender: Any) {
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated:true, completion: nil)
-    
-    }
-    
-    @IBAction func Albums(_ sender: Any) {
-        imagePicker.sourceType = .savedPhotosAlbum
-        present(imagePicker, animated:true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        // Do any additional setup after loading the view.
     }
-    private func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = [UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageView.image = selectedImage
+   
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var Caption: UITextField!
+    
+    @IBAction func cameraTapped(_ sender: Any) {
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func albumTapped(_ sender: Any) {  imagePicker.sourceType = .savedPhotosAlbum
+        present(imagePicker, animated:true, completion: nil)
+    }
+    
+    @IBAction func savePhotoTapped(_ sender: UIButton) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
+            let photoToSave = Photos(entity: Photos.entity(), insertInto: context)
+            photoToSave.caption = Caption.text
             
+            if let userImage = imageView.image {
+              
+            if let userImageData = userImage.pngData(){
+                photoToSave.imageData = userImageData
+                
+            }
         }
-        imagePicker.dismiss(animated: true, completion: nil)
+    (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+      navigationController?.popViewController(animated: true)
+        }
     }
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imageView.image = selectedImage
+            imagePicker.dismiss(animated: true, completion: nil)
+        }
     }
-    */
-
 }
+

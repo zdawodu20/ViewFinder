@@ -15,6 +15,7 @@
 		18F054C822C140490066569C /* ViewFinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F054C722C140490066569C /* ViewFinderTests.swift */; };
 		18F054D322C140490066569C /* ViewFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F054D222C140490066569C /* ViewFinderUITests.swift */; };
 		18F054E322C14C490066569C /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F054E222C14C490066569C /* AddPhotoViewController.swift */; };
+		18F054E722C169F60066569C /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F054E622C169F60066569C /* PostTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		18F054D222C140490066569C /* ViewFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderUITests.swift; sourceTree = "<group>"; };
 		18F054D422C140490066569C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F054E222C14C490066569C /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
+		18F054E622C169F60066569C /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				18F054B922C140490066569C /* Assets.xcassets */,
 				18F054BB22C140490066569C /* LaunchScreen.storyboard */,
 				18F054BE22C140490066569C /* Info.plist */,
+				18F054E622C169F60066569C /* PostTableViewController.swift */,
 				18F054B622C140470066569C /* ViewFinder.xcdatamodeld */,
 				18F054E222C14C490066569C /* AddPhotoViewController.swift */,
 			);
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F054B822C140470066569C /* ViewFinder.xcdatamodeld in Sources */,
+				18F054E722C169F60066569C /* PostTableViewController.swift in Sources */,
 				18F054E322C14C490066569C /* AddPhotoViewController.swift in Sources */,
 				18F054B022C140470066569C /* AppDelegate.swift in Sources */,
 			);
